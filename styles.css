@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+html, body {
+    margin: 0;
+    top:0;
+    height: 100%;
+}
+
+.topmenubar{
+    position: fixed; /* Make sure the menu bar is fixed at the top */
+    width: 100%; /* It should span the full width */
+    height:50px;
+    top:0px;
+    z-index: 1000; /* High z-index to ensure it's above other elements */
+    background-color: #333; /* Example background color for visibility */
+    color: white; /* Text color for visibility */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom:1px solid lightgreen;
+
+}
+
+.logo img {
+    max-width: 100%;
+}
+
+.main{
+    margin-top:50px;
+    margin-left: 250px; /* Push the main content to the right to not be overlapped by the sidebar */
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+
+}
+
+
+.HistorySideBar {
+    background-color: #333; /* Dark background for the sidebar */
+    color: white; /* Light text color for contrast */
+    height: calc(100% - 50px); /* Make the sidebar full height */
+    width: 250px; /* Set a fixed width for the sidebar */
+    position: fixed; /* Position it fixed on the left */
+    left: 0;
+    top: 50px;
+    overflow-x: hidden; /* Hide horizontal overflow */
+    padding-top: 20px; /* Add some padding on the top */
+    border-right:2px solid rgb(49, 72, 202);
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+}
+
+.HistorySideBar h1, .HistorySideBar a {
+    padding: 6px 8px 6px 16px; /* Add some padding for the text */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 25px; /* Increase font size for better readability */
+    color: white; /* Text color */
+    display: block; /* Make each link/item take the full width */
+}
+
+/* Add hover effect for items */
+.HistorySideBar a:hover {
+    background-color: #ddd; /* Light background on hover */
+    color: black; /* Dark text color on hover for contrast */
+}
+
+.HistorySideBar.closed{
+    transform:translateX(-100%);
+    width:0;
+}
+
+#HistorySideBarButton {
+    position: fixed; /* Absolute positioning within the fixed sidebar */
+    bottom: 20px;
+    left: 230px; /* Adjust as necessary to place it outside the sidebar */
+    height: 50px;
+    width:50px;
+    border-radius:50%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    z-index: 1500; /* Higher than sidebar for accessibility */
+    cursor: pointer; /* Clearly indicate the element is clickable */
+    background-color: #b3c000; /* Button background for visibility */
+    color: rgb(0, 0, 0); /* Button icon/text color */
+    border: none; /* Optional: removes the border */
+    outline: none; /* Optional: removes the outline */
+    transition: left 0.3s ease;
+    /* Further styling to match your design */
+}
+
+.HistorySideBar.closed ~ #HistorySideBarButton {
+    left:-20px; /* Adjust if needed to make the button visible when sidebar is closed */
+    transform: rotate(180deg); /* Optional: indicates the sidebar can be opened */
+}
+
+
+.CNR {
+    flex: 1;
+    margin: 10px;
+    padding: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transform:translateX(0);
+    transition: transform 0.3s ease;
+}
+
+.HistorySideBar.closed ~ .CNR{
+    transform:translateX(-250px);
+}
+
+.HistorySideBar.closed ~.main{
+    margin-left:0;
+}
+
+.CodingBox, .RepairBox{
+    flex:1 1 45%;
+    min-height:400px;
+    margin:10px;
+    display:flex;
+    flex-direction: column;
+}
+
+.CodeEditor, .RepairEditor {
+    display: flex;
+    position: relative;
+    border: 1px solid #ccc;
+    font-family: monospace;
+}
+
+.LineNumberArea {
+    background-color: #eee;
+    padding: 10px;
+    user-select: none; /* Prevents line numbers from being selected */
+    text-align: right;
+}
+
+.CodeInput, .CodeOutput {
+    border: none;
+    padding: 10px;
+    font-family: monospace;
+    width: calc(100%-20px);
+    box-sizing:border-box;
+    resize: vertical; /* Allows vertical resizing only */
+    line-height: 1.2; /* Adjust based on your preference */
+    min-height:600px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box; /* Apply border-box model to all elements */
+}
+.CodeInput:focus {
+    outline: none; /* Removes the default focus outline */
+}
+
+.SelectLanguage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    gap:10px;
+    padding:20px 0;
+}
+
+#CheckAndRepair{
+    margin-top:10px;
+}
+
+@media (max-width: 768px) { /* Adjust based on your breakpoint needs */
+    .CNR {
+        flex-direction: column;
+    }
+    .CodingBox, .RepairBox {
+        width: 100%; /* Each takes full width on smaller screens */
+    }
+}

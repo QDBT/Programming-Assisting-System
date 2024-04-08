@@ -1,5 +1,53 @@
 <!DOCTYPE html>
-
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/9cd06d1369.js" crossorigin="anonymous"></script>
+</head>
 <body>
-    
+    <div class="topmenubar">
+        <div class="menubarLeft">
+            <div class="logo" id="logo">
+                <img src="image/Logo.jpg" height="50px" width="120px">
+            </div>
+        </div>
+        <div class="menubarRight">
+            <div>
+                <i class="fa-sharp fa-regular fa-lightbulb"></i>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="HistorySideBar">
+            <h1> this is history</h1>
+        </div>
+        <button id="HistorySideBarButton">>
+            <i class="fa-solid fa-right"></i>
+        </button>
+        <div class="CNR">
+            <div class="CodingBox">
+                <h2>Coding Box</h2>
+                <div class="CodeEditor">
+                    <div class="LineNumberArea"></div>
+                    <textarea class="CodeInput" placeholder="Enter your code..."></textarea>
+                </div>
+            </div>
+            <div class="SelectLanguage">
+                <h3>Select Language:</h3>
+                <select name="Language" id="LanguageSelect">
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="C">C</option>
+                </select>
+                <button id="CheckAndRepair">Check and Repair</button>
+            </div>
+            <div class="RepairBox">
+                <h2>Repair Box</h2>
+                <div class="RepairEditor">
+                    <div class="LineNumberArea">
+                    </div>
+                    <textarea class="CodeOutput" placeholder="Output here"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="script.js"></script>
