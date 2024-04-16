@@ -33,3 +33,5 @@ document.addEventListener('DOMContentLoaded', function () {
     checkAndRepairBtn.addEventListener('click', copyTextToRepairBox);
 
 });
+
+console.log("tellmeifthischange");
